@@ -1,0 +1,166 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is demo API.",
+    "version": "1.0.0",
+    "title": "Swagger demo API",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "frank_polet@hotmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "localhost:8095",
+  "basePath": "/v2",
+  "tags": [
+    {
+      "name": "demo",
+      "description": "demo to test hoverfly microservice testing system",
+      "externalDocs": {
+        "description": "Find out more on swagger.io and hoverfly.io",
+        "url": "http://localhost:8095"
+      }
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/upper": {
+      "post": {
+        "tags": [
+          "upper"
+        ],
+        "summary": "convert input to uppercase",
+        "description": "",
+        "operationId": "upperCase",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "stringObject",
+            "description": "json value containing string to convert in uppercase",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Value"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An uppercase String",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/Upper"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters"
+          },
+          "404": {
+            "description": "parameters not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      }
+    },
+    "/sum": {
+      "post": {
+        "tags": [
+          "sum"
+        ],
+        "summary": "add two integers",
+        "description": "",
+        "operationId": "sumValues",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Addition",
+            "description": "the two integer to sum",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Addition"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "sum of two integer",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/AdditionResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters"
+          },
+          "404": {
+            "description": "parameters not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Upper": {
+      "type": "object",
+      "properties": {
+        "upper": {
+          "type": "string"
+        }
+      }
+    },
+    "Value": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "Addition": {
+      "type": "object",
+      "properties": {
+        "field1": {
+          "type": "integer"
+        },
+        "field2": {
+          "type": "integer"
+        }
+      }
+    },
+    "AdditionResult": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

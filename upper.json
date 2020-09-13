@@ -1,0 +1,47 @@
+{
+  "data" : {
+    "pairs" : [ {
+      "request" : {
+        "path" : [ {
+          "matcher" : "exact",
+          "value" : "/v2/upper"
+        } ],
+        "method" : [ {
+          "matcher" : "exact",
+          "value" : "POST"
+        } ],
+        "destination" : [ {
+          "matcher" : "exact",
+          "value" : "localhost:8095"
+        } ],
+        "scheme" : [ {
+          "matcher" : "exact",
+          "value" : "http"
+        } ],
+        "body" : [ {
+          "matcher" : "exact",
+          "value" : "{\"value\":\"this is a test\"}"
+        } ]
+      },
+      "response" : {
+        "status" : 200,
+        "body" : "{\r\n  \"upper\" : \"THIS IS A TEST\"\r\n}",
+        "encodedBody" : false,
+        "templated" : false,
+        "headers" : {
+          "Content-Length" : [ "34" ],
+          "Content-Type" : [ "application/json" ],
+          "Hoverfly" : [ "Was-Here" ]
+        }
+      }
+    } ],
+    "globalActions" : {
+      "delays" : [ ]
+    }
+  },
+  "meta" : {
+    "schemaVersion" : "v5",
+    "hoverflyVersion" : "v1.1.5",
+    "timeExported" : "2020-09-12T20:58:55+02:00"
+  }
+}
