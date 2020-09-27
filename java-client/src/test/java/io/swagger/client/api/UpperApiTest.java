@@ -49,7 +49,8 @@ public class UpperApiTest {
 
     @ClassRule
     public static HoverflyRule hoverflyRule = HoverflyRule
-            .inCaptureOrSimulationMode("c:\\frank\\hoverflydemo\\upper.json", HoverflyConfig.configs().proxyLocalHost()).printSimulationData();
+            .inCaptureOrSimulationMode("c:\\frank\\hoverflydemo\\upper.json"
+                                        , HoverflyConfig.configs().proxyLocalHost());//.printSimulationData();
 
 
     @Test
@@ -58,7 +59,7 @@ public class UpperApiTest {
         stringObject.setValue("this is a test");
         Upper response = api.upperCase(stringObject);
 
-        System.out.println(" upper : result : "+response.getUpper());
+        System.out.println(" ----> upper : result : "+response.getUpper());
 
         // TODO: test validations
         assertEquals("THIS IS A TEST",response.getUpper().toString());

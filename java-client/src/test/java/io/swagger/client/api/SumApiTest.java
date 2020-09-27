@@ -49,7 +49,8 @@ public class SumApiTest {
 
     @ClassRule
     public static HoverflyRule hoverflyRule = HoverflyRule
-            .inCaptureOrSimulationMode("c:\\frank\\hoverflydemo\\sum.json", HoverflyConfig.configs().proxyLocalHost()).printSimulationData();
+            .inCaptureOrSimulationMode("c:\\frank\\hoverflydemo\\sum.json"
+                                        , HoverflyConfig.configs().proxyLocalHost());//.printSimulationData();
 
     @Test
     public void sumValuesTest() throws ApiException {
@@ -58,7 +59,7 @@ public class SumApiTest {
         addition.setField2(22);
         AdditionResult response = api.sumValues(addition);
 
-        System.out.println(" sum : response : "+response.getResult());
+        System.out.println(" ---> sum : response : "+response.getResult());
 
         // TODO: test validations
         assertEquals(new Integer(32),response.getResult());
